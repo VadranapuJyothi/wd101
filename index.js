@@ -1,16 +1,16 @@
-function minDate() {
+function MiDate() {
     const today = new Date();
     return new Date(today.getFullYear() - 55, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 }
 
-function maxDate() {
+function MaDate() {
     const today = new Date();
     return new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 }
 
 const dobInput = document.getElementById('dob');
-dobInput.setAttribute('min', minDate());
-dobInput.setAttribute('max', maxDate());
+dobInput.setAttribute('min', MiDate());
+dobInput.setAttribute('max', MaDate());
 
 let userForm = document.getElementById("userForm");
 
@@ -33,9 +33,9 @@ const dispEntries = () => {
         const email = `<td class="bor">${entry.email}</td>`;
         const password = `<td class="bor">${entry.password}</td>`;
         const dateOfBirth = `<td class="bor">${entry.dob}</td>`; 
-        const atnc = `<td class="bor">${entry.atnc}</td>`;
+        const J = `<td class="bor">${entry.J}</td>`;
 
-        const row = `<tr>${name} ${email} ${password} ${dateOfBirth} ${atnc}</tr>`;
+        const row = `<tr>${name} ${email} ${password} ${dateOfBirth} ${J}</tr>`;
         return row;
     }).join("\n");
 
@@ -53,10 +53,10 @@ const formSubmit = (event) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const dateOfBirth = document.getElementById("dob").value; 
-    const atnc = document.getElementById("atnc").checked;
+    const J = document.getElementById("J").checked;
 
     const entry = {
-        name, email, password, dob: dateOfBirth, atnc 
+        name, email, password, dob: dateOfBirth, J 
     }
 
     userEntries.push(entry);
